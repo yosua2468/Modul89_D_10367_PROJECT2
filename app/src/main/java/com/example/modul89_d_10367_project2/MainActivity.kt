@@ -75,6 +75,10 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
             // Changes the colour of the square if it's completely flat
             val color = if (upDown.toInt() == 0 && sides.toInt() == 0) Color.GREEN else Color.RED
             square.setBackgroundColor(color)
+            
+            if(upDown.toInt() > 5 || sides.toInt() > 5){
+                sendNotification()
+            }
 
             square.text = "up/down ${upDown.toInt()}\nleft/right ${sides.toInt()}"
         }
